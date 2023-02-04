@@ -1,0 +1,11 @@
+---
+# tasks file for detectOS
+ - name: Define debian
+   set_fact:
+     package_name: "nginx"
+   when:
+     ansible_os_family ==  "Debian"
+ - name: Stop nginx
+   service:
+     name: "{{ package_name }}"
+     state: stopped
